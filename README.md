@@ -6,7 +6,7 @@
 - [x] Tidyup build process
 - [x] Actually set up a database (Vercel)
 - [x] Attach database to UI
-- [ ] Add auth (Clerk)
+- [x] Add auth (Clerk)
 - [ ] Add image upload
 - [ ] Error management (sentry)
 - [ ] Routing/image page (parallel route)
