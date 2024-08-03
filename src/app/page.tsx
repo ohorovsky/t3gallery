@@ -2,12 +2,12 @@
 
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { db } from "~/server/db";
-import { getImages } from "~/server/queries";
+import { getMyImages } from "~/server/queries";
 
 export const dynamic = "force-dynamic";
 
 async function Images() {
-  const images = await getImages();
+  const images = await getMyImages();
   return <div className="flex flex-wrap gap-4">
     {images.map((image) => (
       <div key={image.id} className="w-48 flex flex-col">
