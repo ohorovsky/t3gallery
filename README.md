@@ -10,7 +10,7 @@
 - [x] Add image upload
 - [x] taint (server only) - this is like serializer groups - read https://nextjs.org/blog/security-nextjs-server-components-actions
 - [x] Use next image
-- [ ] Error management (sentry)
+- [x] Error management (sentry)
 - [ ] Routing/image page (parallel route)
 - [ ] Delete button (server action)
 - [ ] Analytics (PostHog)
