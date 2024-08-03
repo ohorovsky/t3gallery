@@ -1,13 +1,10 @@
-// import { Modal } from './modal';
+import FullImagePage from "~/components/full-image-page";
 
-import { getImage } from "~/server/queries";
-
-export default async function PhotoModal({
+export default function PhotoModal({
   params: { id: photoId },
 }: {
   params: { id: string };
 }) {
   const idasNumber = Number(photoId);
-  const image = await getImage(idasNumber);
-  return <div><img src={image.url} alt={image.name} width={300} height={300} /> </div>;
+  return <FullImagePage id={idasNumber} />
 }
