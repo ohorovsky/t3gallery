@@ -8,7 +8,7 @@
 - [x] Attach database to UI
 - [x] Add auth (Clerk)
 - [x] Add image upload
-- [ ] taint (server only)
+- [ ] taint (server only) - this is like serializer groups - read https://nextjs.org/blog/security-nextjs-server-components-actions
 - [ ] Use next image
 - [ ] Error management (sentry)
 - [ ] Routing/image page (parallel route)
