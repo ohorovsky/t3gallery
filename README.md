@@ -7,8 +7,9 @@
 - [x] Actually set up a database (Vercel)
 - [x] Attach database to UI
 - [x] Add auth (Clerk)
-- [ ] Add image upload
+- [x] Add image upload
 - [ ] taint (server only)
+- [ ] Use next image
 - [ ] Error management (sentry)
 - [ ] Routing/image page (parallel route)
 - [ ] Delete button (server action)
