@@ -1,6 +1,7 @@
 "use client";
 // Note: `useUploadThing` is IMPORTED FROM YOUR CODEBASE using the `generateReactHelpers` function
 import { useRouter } from "next/navigation";
+import { usePostHog } from "posthog-js/react";
 import { useEffect } from "react";
 import { toast } from "sonner"
 import { useUploadThing } from "~/utils/uploadthing";
@@ -18,6 +19,7 @@ function UploadSpinner() {
 }
 
 export function SimpleUploadButton() {
+  const posthog = usePostHog();
   const router = useRouter();
   const { startUpload } = useUploadThing(
     "imageUploader",
@@ -32,6 +34,7 @@ export function SimpleUploadButton() {
         // alert("error occurred while uploading");
       },
       onUploadBegin: () => {
+        posthog.capture("upload-begin");
         toast(<div className="flex gap-2 items-center text-white text-lg"><UploadSpinner /> Uploading</div>, { id: "uploading", duration: 3000 })
       },
     },
