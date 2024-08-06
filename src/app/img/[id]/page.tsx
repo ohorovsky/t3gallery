@@ -5,8 +5,7 @@ export default function PhotoModal({
 }: {
   params: { id: string };
 }) {
-  const idasNumber = Number(photoId);
   return <div className="h-full">
-    <FullImagePage id={idasNumber} />
+    <FullImagePage id={photoId} />
   </div>
 }
