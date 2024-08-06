@@ -1,7 +1,7 @@
 "use client";
 // Note: `useUploadThing` is IMPORTED FROM YOUR CODEBASE using the `generateReactHelpers` function
 import { useRouter } from "next/navigation";
-
+import { toast } from "sonner"
 import { useUploadThing } from "~/utils/uploadthing";
 
 function UploadSvg() {
@@ -19,14 +19,16 @@ export function SimpleUploadButton() {
     {
       onClientUploadComplete: () => {
         router.refresh();
+        toast.dismiss("uploading");
+        toast.success("Uploaded successfully!", { id: "upload-success", duration: 3000 });
         // alert("uploaded successfully!");
       },
-      // onUploadError: () => {
-      //   alert("error occurred while uploading");
-      // },
-      // onUploadBegin: () => {
-      //   alert("upload has begun");
-      // },
+      onUploadError: () => {
+        // alert("error occurred while uploading");
+      },
+      onUploadBegin: () => {
+        toast("Uploading...", { id: "uploading", duration: 3000 });
+      },
     },
   );
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -12,6 +12,8 @@
 - [x] Use next image
 - [x] Error management (sentry)
 - [x] Routing/image page (parallel route)
+- [x] Style upload button
+- [x] Shadcn UI (toasts)
 - [ ] Delete button (server action)
 - [ ] Analytics (PostHog)
 - [ ] Ratelimitting (upstash)
