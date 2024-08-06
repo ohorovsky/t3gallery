@@ -11,7 +11,7 @@
 - [x] taint (server only) - this is like serializer groups - read https://nextjs.org/blog/security-nextjs-server-components-actions
 - [x] Use next image
 - [x] Error management (sentry)
-- [ ] Routing/image page (parallel route)
+- [x] Routing/image page (parallel route)
 - [ ] Delete button (server action)
 - [ ] Analytics (PostHog)
 - [ ] Ratelimitting (upstash)

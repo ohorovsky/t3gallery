@@ -30,13 +30,15 @@ export default function RootLayout({
            */
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
-        <body className={`font-sans ${GeistSans.variable} flex flex-col gap-4`}>
-          <div className="w-full">
+        <body className={`font-sans ${GeistSans.variable}`}>
+          <div className="h-screen grid grid-rows-[auto,1fr]">
             <TopNav />
-            {children}
-            {modal}
-            <div id="modal-root" />
+            <main className="overflow-y-scroll">
+              {children}
+            </main>
           </div>
+          {modal}
+          <div id="modal-root" />
         </body>
       </html>
     </ClerkProvider>
