@@ -30,8 +30,10 @@ export function SimpleUploadButton() {
         toast.success("Uploaded successfully!", { id: "upload-success", duration: 3000 });
         // alert("uploaded successfully!");
       },
-      onUploadError: () => {
-        // alert("error occurred while uploading");
+      onUploadError: (error) => {
+        posthog.capture("upload-error", { error });
+        toast.error("Upload failed!", { id: "upload-error", duration: 3000 });
+        toast.dismiss("uploading");
       },
       onUploadBegin: () => {
         posthog.capture("upload-begin");

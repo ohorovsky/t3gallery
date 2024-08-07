@@ -3,6 +3,7 @@ import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 import { db } from "~/server/db";
 import { images } from "~/server/db/schema";
+import { ratelimit } from "~/server/ratelimit";
 
 const f = createUploadthing();
 
@@ -18,15 +19,13 @@ export const ourFileRouter = {
       const user = auth();
 
       // If you throw, the user will not be able to upload
-      if (!user) throw new UploadThingError("Unauthorized");
-
+      if (!user.userId) throw new UploadThingError("Unauthorized");
+      const { success } = await ratelimit.limit(user.userId);
+      if (!success) throw new UploadThingError("Too Many Requests");
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
       return { userId: user.userId };
     })
     .onUploadComplete(async ({ metadata, file }) => {
-      // This code RUNS ON YOUR SERVER after upload
-      // console.log("Upload complete for userId:", metadata.userId);
-      // console.log("file url", file.url);
       metadata.userId && await db.insert(images).values({
         name: file.name,
         url: file.url,
